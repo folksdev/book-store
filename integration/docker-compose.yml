@@ -1,0 +1,16 @@
+version: '2.4'
+
+services:
+  bookstore:
+    image: bookstore:0.0.3
+    ports:
+    - 9091:8080
+    environment:
+      DB_URL: "jdbc:h2:tcp://h2db/bookstore-db;DB_CLOSE_DELAY=-1"
+      DB_USERNAME: "folksdev"
+      DB_PASSWORD: "folksdev"
+
+  h2db:
+    image: buildo/h2database
+    ports:
+    - 9092:8082
